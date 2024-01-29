@@ -4,14 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic template for the CGSM labs</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="styleIndex.css">
 </head>
-<body style="color: white">
-    <canvas id="canvas1"><script type="module" defer src="dist/prac1-2.js"></script></canvas>
-    <canvas id="canvas2"><script type="module" defer src="dist/prac1-3.js"></script></canvas>
-    <canvas id="canvas3"><script type="module" defer src="dist/prac1-4.js"></script></canvas>
-    <canvas id="canvas4"><script type="module" defer src="dist/prac1-5.js"></script></canvas>
-    <canvas id="canvas5"><script type="module" defer src="dist/prac1-6.js"></script></canvas>
+<body style="color: black">
+    <div id="intro-text">
+        <h1>Sesión 1</h1>
+        <p>En esta primera práctica he realizado diferentes geometrías para familiarizarme con el uso de la librería WEBGL.
+            El primer canvas es una geometría cuadrada, para la cual no surgieron muchas dudas.
+            El siguiente es la misma figura pero a la que le he aplciado una rotación para ver la forma 3D.
+            El siguiente canvas contiene 3 figuras, todas con materiales básicos. En esta práctica surgió la dificultad de que hay que desplazar algunas figuras
+            del origen de coordenadas para evitar solapamientos.
+            La siguiente es una figura en 2D un poco más compleja en la que dibujamos una casa, indicando todos los vértices y las paredes que la componen. La mayor dificultad
+            aquí fue entender cómo funcionan los vértices en WEBGL.
+            Por último tenemos las dos anteriores juntas, con la diferencia de que cambiamos algunos materiales y añadimos una luz para ver el volúmen de la esfera y el cilindro.
 
+        </p>
+    </div>
+    <div class="canvas-container">
+        <canvas id="canvas1"></canvas>
+        <script type="module" defer src="dist/prac1-2.js"></script>
+    </div>
+    <div class="canvas-container">
+        <canvas id="canvas2"></canvas>
+        <script type="module" defer src="dist/prac1-3.js"></script>
+    </div>
+    <div class="canvas-container">
+        <canvas id="canvas3"></canvas>
+        <script type="module" defer src="dist/prac1-4.js"></script>
+    </div>
+    <div class="canvas-container">
+        <canvas id="canvas4"></canvas>
+        <script type="module" defer src="dist/prac1-5.js"></script>
+    </div>
+    <div class="canvas-container">
+        <canvas id="canvas5"></canvas>
+        <script type="module" defer src="dist/prac1-6.js"></script>
+    </div>
 </body>
 </html>
