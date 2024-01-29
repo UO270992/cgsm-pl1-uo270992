@@ -6,14 +6,14 @@ if ( WEBGL.isWebGLAvailable() ) {
     window.addEventListener( 'resize', ( ) => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix( );
-        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.setSize( window.innerWidth, window.innerHeight);
         renderer.render( scene, camera );
     }, false );
     
     // WebGL is available
     const scene = new THREE.Scene();
     const renderer = new THREE.WebGLRenderer( {antialias: true} );
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize( window.innerWidth, window.innerHeight);
     document.body.appendChild( renderer.domElement );
     const camera = new THREE.PerspectiveCamera ( 45, window.innerWidth / window.innerHeight, 1, 4000 );
     camera.position.set( 0, 0, 2000 );
@@ -39,32 +39,27 @@ if ( WEBGL.isWebGLAvailable() ) {
 
     const geometry = new THREE.BufferGeometry();
     const inner = 400;
-    const outer = 500;
+    const outer = 600;
 
     const vertices = new Float32Array( [
         
         // Internal vertices
-        -inner, inner, 0,
-        inner, inner, 0,
-        inner, -inner, 0,
-        -inner, -inner, 0,
+        -inner, inner, 0, //0
+        inner, inner, 0, //1 
+        inner, -inner, 0, //2
+        -inner, -inner, 0, //3
 
         // External vertices
-        -outer, outer, 0,
-        outer, outer, 0,
-        outer, -outer, 0,
-        -outer, -outer, 0,
+        -outer, outer, 0, //4
+        outer, outer, 0, //5
+        outer, -outer, 0, //6
+        -outer, -outer, 0, //7
 
         // roof vertices
-        outer, outer, 0,
-        -outer, outer, 0,
-        0, 800, 0
-/*
-        // door
-        -100, -400, 0,
-        100, -400, 0,
-        100, -200, 0,
-        -100, -200, 0*/
+        outer, outer, 0, //8
+        -outer, outer, 0, //9
+        0, 800, 0 //10
+
     ] );
 
     // Faces (indices of vertices)
@@ -77,7 +72,7 @@ if ( WEBGL.isWebGLAvailable() ) {
         2, 3, 7,
         4, 7, 3,
         3, 0, 4,
-        8, 10, 9,
+        8, 10,9
 
     ];
 
