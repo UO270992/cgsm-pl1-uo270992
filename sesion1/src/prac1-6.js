@@ -59,7 +59,6 @@ if ( WEBGL.isWebGLAvailable() ) {
         outer, outer, 0, //8
         -outer, outer, 0, //9
         0, 800, 0 //10
-
     ] );
 
     // Faces (indices of vertices)
