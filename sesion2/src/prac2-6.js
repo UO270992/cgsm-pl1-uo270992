@@ -73,22 +73,23 @@ if ( WEBGL.isWebGLAvailable() ) {
 
     scene.add( object,moonGroup, light);
     renderer.render( scene, camera );
-    animate(earth, atmosphere);
+    animate();
+
+    function animate() {
+
+        const delta = clock.getDelta( ); // Elapsed time in seconds
+    
+        // UPDATE THE SCENE ACCORDING TO THE ELAPSED TIME
+        const rotation = ( delta * Math.PI * 2 ) / 24;
+        
+        earth.rotation.y += rotation;
+        atmosphere.rotation.y += rotation * 0.95;
+    
+        // Render the scene
+        renderer.render( scene, camera );
+    
+        // Request the browser to execute the animation-rendering loop
+        requestAnimationFrame( animate );
+    };
 }
 
-function animate() {
-
-    const delta = clock.getDelta( ); // Elapsed time in seconds
-
-    // UPDATE THE SCENE ACCORDING TO THE ELAPSED TIME
-    const rotation = ( delta * Math.PI * 2 ) / 24;
-    
-    earth.rotation.y += rotation;
-    atmosphere.rotation.y += rotation * 0.95;
-
-    // Render the scene
-    renderer.render( scene, camera );
-
-    // Request the browser to execute the animation-rendering loop
-    requestAnimationFrame( animate );
-};
