@@ -20,13 +20,15 @@ if ( WEBGL.isWebGLAvailable() ) {
 
     const mapUrl = "../textures/crate.gif";   // The file used as texture
     const textureLoader = new THREE.TextureLoader( );  // The object used to load textures
-    const map = textureLoader.load( mapUrl );
-    const material = new THREE.MeshBasicMaterial( { map: map } );
+    const map = textureLoader.load( mapUrl,  ( loaded ) => {
+        renderer.render( scene, camera );
+    });
+    const material = new THREE.MeshBasicMaterial( { map: map, });
     const geometry = new THREE.BoxGeometry( 100, 100, 100 );
     const box = new THREE.Mesh( geometry, material );
     box.rotation.set( Math.PI / 5, Math.PI / 5, 0 );
     scene.add( box );
-    ( loaded ) => { renderer.render( scene, camera ); }
+    renderer.render( scene, camera );
     
 
 }
