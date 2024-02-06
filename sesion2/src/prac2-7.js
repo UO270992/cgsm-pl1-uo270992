@@ -104,6 +104,7 @@ function animate() {
     earth.rotation.y += rotation;
     atmosphere.rotation.y += rotation * 0.95;
     moonGroup.rotation.y += rotation/28; 
+    moon.rotation.y += rotation/28;
     
 
     // Render the scene
