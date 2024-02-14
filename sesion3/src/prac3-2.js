@@ -19,7 +19,7 @@ if ( !WEBGL.isWebGLAvailable() ) {
     document.body.appendChild( renderer.domElement );
     //Cámara
     const camera = new THREE.PerspectiveCamera ( 45, window.innerWidth / window.innerHeight, 1, 4000 );
-    camera.position.set( 0, 0, 250 );
+    camera.position.set( 0, 0, 350 );
     //Luz
     const light = new THREE.PointLight(0xFFFFFF,3,0,0);
     light.position.set( 0, 0, 300);
