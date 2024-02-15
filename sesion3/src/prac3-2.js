@@ -22,11 +22,23 @@ if ( !WEBGL.isWebGLAvailable() ) {
     camera.position.set( 0, 0, 350 );
     //Luz
     const light = new THREE.PointLight(0xFFFFFF,3,0,0);
-    light.position.set( 0, 0, 300);
+    light.position.set( 0, 0, 500);
     scene.add(light);
     
 
     /*****************************************CÓDIGO**************************************** */
+
+    const startButton = document.getElementById('startButton');
+    startButton.addEventListener('click', () => init(), false);
+    function init() {
+        var overlay = document.getElementById('overlay');
+        overlay.remove();
+ 
+        // Do stuff
+        const video = document.getElementById('video');
+        video.play();
+    }
+
     const video = document.getElementById( 'video' );
 
     const image = document.createElement( 'canvas' );
