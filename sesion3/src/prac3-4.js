@@ -62,8 +62,8 @@ if ( !WEBGL.isWebGLAvailable() ) {
     const box1 = new THREE.Mesh(geometry1, materials);
     const box2 = new THREE.Mesh(geometry1, materials);
     scene.add(box1, box2);
-    box1.position.set(100,25.1,0);
-    box2.position.set(-100,25.1,0);
+    box1.position.set(200,25.1,0);
+    box2.position.set(-200,25.1,0);
     box1.rotateY(Math.PI);
 
 
@@ -77,8 +77,7 @@ if ( !WEBGL.isWebGLAvailable() ) {
     controls.movementSpeed = 70;
     controls.lookSpeed = 0.05;
     controls.noFly = false;
-    controls.lookVertical = true;
-    scene.add(controls);
+    controls.lookVertical = false;
     
     renderer.render( scene, camera );
     animate();
