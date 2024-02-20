@@ -27,7 +27,7 @@ if ( !WEBGL.isWebGLAvailable() ) {
 
     //Cámara
     const camera = new THREE.PerspectiveCamera ( 45, window.innerWidth / window.innerHeight, 1, 4000 );
-    camera.position.set( 0, 0, 300 );
+    camera.position.set( 0, 30, 300 );
     const listener = new THREE.AudioListener();
     camera.add( listener );
 
@@ -105,9 +105,9 @@ if ( !WEBGL.isWebGLAvailable() ) {
     const boxMusic = new THREE.Mesh(geometry2, materialsMusic);
     scene.add(boxDog, boxMusic);
 
-    boxDog.position.set(-100,25.1,0);
+    boxDog.position.set(-200,25.1,0);
     boxDog.name = "Dog Box!";
-    boxMusic.position.set(100,25.1,0);
+    boxMusic.position.set(200,25.1,0);
     boxMusic.name = "Music Box!";
     boxMusic.rotateY(Math.PI);
 
@@ -136,8 +136,7 @@ if ( !WEBGL.isWebGLAvailable() ) {
     controls.movementSpeed = 70;
     controls.lookSpeed = 0.05;
     controls.noFly = false;
-    controls.lookVertical = true;
-    scene.add(controls);
+    controls.lookVertical = false;
 
     const startButton = document.getElementById('startButton');
     startButton.addEventListener('click', () => init(), false);
@@ -160,35 +159,35 @@ if ( !WEBGL.isWebGLAvailable() ) {
         const spaceKeyCode = 32;
     
         // Space pressed and intersected object
-        if ( event.keyCode === spaceKeyCode && intersectedObject.name) {
-            if (intersectedObject.name === "Dog Box!"){
-                if ( soundDog.isPlaying === true ){
-                    soundDog.pause();
-                    // The first face is the one with the button
-                    boxDog.material[ 0 ] = specialFaceMaterialOff;
-                    boxDog.material.needsUpdate = true;
+        if(intersectedObject){
+            if ( event.keyCode === spaceKeyCode && intersectedObject.name) {
+                if (intersectedObject.name === "Dog Box!"){
+                    if ( soundDog.isPlaying === true ){
+                        soundDog.pause();
+                        // The first face is the one with the button
+                        boxDog.material[ 0 ] = specialFaceMaterialOff;
+                        boxDog.material.needsUpdate = true;
+                    }
+                    else{
+                        soundDog.play();
+                        boxDog.material[ 0 ] = specialFaceMaterialOn;
+                        boxDog.material.needsUpdate = true;
+                    }
                 }
-                else{
-                    soundDog.play();
-                    boxDog.material[ 0 ] = specialFaceMaterialOn;
-                    boxDog.material.needsUpdate = true;
+                if (intersectedObject.name === "Music Box!"){
+                    if ( soundMusic.isPlaying === true ){
+                        soundMusic.pause();
+                        // The first face is the one with the button
+                        boxMusic.material[ 0 ] = specialFaceMaterialOff;
+                        boxMusic.material.needsUpdate = true;
+                    }
+                    else{
+                        soundMusic.play();
+                        boxMusic.material[ 0 ] = specialFaceMaterialOn;
+                        boxMusic.material.needsUpdate = true;
+                    }
                 }
-            }
-            if (intersectedObject.name === "Music Box!"){
-                if ( soundMusic.isPlaying === true ){
-                    soundMusic.pause();
-                    // The first face is the one with the button
-                    boxMusic.material[ 0 ] = specialFaceMaterialOff;
-                    boxMusic.material.needsUpdate = true;
-                }
-                else{
-                    soundMusic.play();
-                    boxMusic.material[ 0 ] = specialFaceMaterialOn;
-                    boxMusic.material.needsUpdate = true;
-                }
-            }
-
-            
+        }        
         }
     }, false );
     
