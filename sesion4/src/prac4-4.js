@@ -4,7 +4,7 @@ import { FirstPersonControls } from 'three/examples/jsm/controls/FirstPersonCont
 const clock = new THREE.Clock( );
 
 if ( !WEBGL.isWebGLAvailable() ) {
-
+    throw new Error("WEBGL is not available");
 }
 
     window.addEventListener( 'resize', ( ) => {
@@ -114,14 +114,14 @@ if ( !WEBGL.isWebGLAvailable() ) {
     // Add audio to one box
     const audioLoader = new THREE.AudioLoader();
     const soundMusic = new THREE.PositionalAudio( listener );
-    audioLoader.load( "./audio/dog.ogg", ( buffer ) => {
+    audioLoader.load( "./audio/cat.ogg", ( buffer ) => {
         soundMusic.setBuffer( buffer );
         soundMusic.setRefDistance( 20 );
         soundMusic.setLoop( true );
         soundMusic.setRolloffFactor( 1 );
     });
     const soundDog = new THREE.PositionalAudio( listener );
-    audioLoader.load( "./audio/cat.ogg", ( buffer ) => {
+    audioLoader.load( "./audio/dog.ogg", ( buffer ) => {
         soundDog.setBuffer( buffer );
         soundDog.setRefDistance( 20 );
         soundDog.setLoop( true );

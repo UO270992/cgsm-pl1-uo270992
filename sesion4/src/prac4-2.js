@@ -4,7 +4,7 @@ import { FirstPersonControls } from 'three/examples/jsm/controls/FirstPersonCont
 const clock = new THREE.Clock( );
 
 if ( !WEBGL.isWebGLAvailable() ) {
-
+    throw new Error("WEBGL is not available");
 }
 
     window.addEventListener( 'resize', ( ) => {
@@ -27,7 +27,7 @@ if ( !WEBGL.isWebGLAvailable() ) {
 
     //Cámara
     const camera = new THREE.PerspectiveCamera ( 45, window.innerWidth / window.innerHeight, 1, 4000 );
-    camera.position.set( 0, 0, 300 );
+    camera.position.set( 0, 30, 300 );
     const listener = new THREE.AudioListener();
     camera.add( listener );
 
@@ -77,9 +77,9 @@ if ( !WEBGL.isWebGLAvailable() ) {
     const box1 = new THREE.Mesh(geometry1, materials);
     const box2 = new THREE.Mesh(geometry2, materials);
     scene.add(box1, box2);
-    box1.position.set(-100,25.1,0);
+    box1.position.set(-200,25.1,0);
     box1.name = "Left Box!";
-    box2.position.set(100,25.1,0);
+    box2.position.set(200,25.1,0);
     box2.name = "Right Box!";
     box2.rotateY(Math.PI);
 
@@ -91,7 +91,6 @@ if ( !WEBGL.isWebGLAvailable() ) {
         soundCat.setRefDistance( 20 );
         soundCat.setLoop( true );
         soundCat.setRolloffFactor( 1 );
-        soundCat.play(); // Modern browsers do not allow sound to start without user interaction
     });
     const soundDog = new THREE.PositionalAudio( listener );
     audioLoader.load( "./audio/cat.ogg", ( buffer ) => {
@@ -99,7 +98,6 @@ if ( !WEBGL.isWebGLAvailable() ) {
         soundDog.setRefDistance( 20 );
         soundDog.setLoop( true );
         soundDog.setRolloffFactor( 1 );
-        soundDog.play(); // Modern browsers do not allow sound to start without user interaction
     });
 
     box1.add( soundDog );
@@ -110,8 +108,7 @@ if ( !WEBGL.isWebGLAvailable() ) {
     controls.movementSpeed = 70;
     controls.lookSpeed = 0.05;
     controls.noFly = false;
-    controls.lookVertical = true;
-    scene.add(controls);
+    controls.lookVertical = false;
 
     const startButton = document.getElementById('startButton');
     startButton.addEventListener('click', () => init(), false);

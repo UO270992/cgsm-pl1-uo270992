@@ -15,37 +15,37 @@
                 </tr>
                 <tr>
                     <th>Práctica:</th>
-                    <td>3</td> 
+                    <td>4</td> 
                 </tr>
             </table>
         </div>
         <div id="content">
             <h1>Memoria</h1>
             <h2>Descripción de la práctica</h2>
-                <p>Durante esta práctica aprendimos cómo aplicar mapas topológicos a las texturas para producir un efecto de profundidad en las mismas. También aprendimos a usar vídeos como texturas
-                    y diferentes tipos de controles, tanto sobre la cámara de la escena como sobre algunos atributos de los objetos.
+                <p>En esta sesión seguiremos trabajando en aspectos avanzados de three.js. Concretamente, utilizaremos sonidos 3D, de forma que el usuario perciba cómo el sonido cambia cuando se desplaza por la escena. Además, aprenderemos a seleccionar objetos en la escena y detectar colisiones con ellos.
                 </p>
             <h2>Ejercicio 1</h2>
-                <p>Aplicamos un mapa topológico para darle profundidad a un objeto cúbico. Se puede apreciar con la luz direccional que el objeto tiene más profundidad que si tuvieramos la textura plana</p>
+                <p>Añadimos audio a ambas cajas para aprender a utilizar sonido posicional, por comodidad no se reproduce el audio de manera automática si no que se espera interacción del usuario</p>
                 <iframe class="container" src="prac4-1.html">                    
                 </iframe>
             <h2>Ejercicio 2</h2>
-                <p>Le aplicamos una textura de vídeo a un plano con las mismas dimensiones que el vídeo.</p>
+                <p>En esta sección implementamos selección de objetos mediante trazado de rayos. Podemos ver en la consola como aparece el nombre de los objetos cuando pasamos el cursos sobre ellos.</p>
                 <iframe class="container" src="prac4-2.html">
                     Escena 2
                 </iframe>
             <h2>Ejercicio 3</h2>
-                <p>Este ejercicio es similar al primero, pero con la particularidad de que tenemos dos elementos nuevos. Uno que permite ver estadísticas de la escena y otro que permite modificar un valor, en este caso el bumpscale</p>
+                <p>Con el selector de objetos implementado podemos hacer que las cajas se activen cuando pulsamos el espacio con el ratón encima de ellas. También modificamos la textura para tener un efecto visual a la hora de reproducir el sonido</p>
                 <iframe class="container" src="prac4-3.html">
                     Escena 3
                 </iframe>
             <h2>Ejercicio 4</h2>
-                <p>Rotamos ligeramente el objeto 3D compuesto por la tierra y la atmósfera para que sea más realista</p>
+                <p>Por último implementamos un mecanismo para detectar colisiones, trazando rayos en todas las direcciones desde la cámara. Se puede comprobar que no es posible atravesar los objetos en este escenario.</p>
                 <iframe class="container" src="prac4-4.html">
                     Escena 4
                 </iframe>
             <h2>Dificultades encontradas</h2>
-            <p>Considero que la mayor dificultad es comprender, a la hora de animar objetos, cómo interactúan los objetos 3D y cómo deben agruparse para obtener la animación deseada.
+            <p>Considero que la mayor dificultad es comprender cómo funcionan los audios en WEBGL, y que estos tienen que aplicarse al objeto para obtener audio posicional. También 
+                que hay que ser precavido cuando se utiliza trazado de rayos ya que es necesario definir bien qué objetos pueden ser intersecados. 
             </p>
         </div>
     </body>
