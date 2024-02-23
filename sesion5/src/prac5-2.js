@@ -4,7 +4,7 @@ import dashjs from 'dashjs';
 const clock = new THREE.Clock( );
 
 if ( !WEBGL.isWebGLAvailable() ) {
-
+    throw new Error("WEBGL is not available");
 }
 
     window.addEventListener( 'resize', ( ) => {
