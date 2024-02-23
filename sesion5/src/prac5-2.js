@@ -26,12 +26,23 @@ if ( !WEBGL.isWebGLAvailable() ) {
     light.position.set( 0, 0, 500);
     scene.add(light);
     
+    //Listener
+    const startButton = document.getElementById('startButton');
+    startButton.addEventListener('click', () => init(), false);
+    function init() {
+        var overlay = document.getElementById('overlay');
+        overlay.remove();
+ 
+        // Do stuff
+        const video = document.getElementById('video');
+        video.play();
+    }
 
     /*****************************************CÓDIGO**************************************** */
 
     const url = "./manifests/sintelFinal.mpd";
     const player = dashjs.MediaPlayer().create();
-    player.initialize(document.querySelector("#video"), url, true);
+    player.initialize(document.querySelector("#video"), url, false);
 
     const video = document.getElementById( 'video' );
 
@@ -52,7 +63,6 @@ if ( !WEBGL.isWebGLAvailable() ) {
     function animate() {
         const delta = clock.getDelta( ); // Elapsed time in seconds
         const rotation = ( delta * Math.PI * 2 )/24;
-
         if ( video.readyState === video.HAVE_ENOUGH_DATA ) {
             imageContext.drawImage( video, 0, 0 );
             if ( texture ) texture.needsUpdate = true;
