@@ -22,7 +22,8 @@
         <div id="content">
             <h1>Memoria</h1>
             <h2>Descripción de la práctica</h2>
-                <p>En esta sesión seguiremos trabajando en aspectos avanzados de three.js. Concretamente, utilizaremos sonidos 3D, de forma que el usuario perciba cómo el sonido cambia cuando se desplaza por la escena. Además, aprenderemos a seleccionar objetos en la escena y detectar colisiones con ellos.
+                <p>Durante esta sesión aprenderemos cómo están construidos los manifiestos DASH, con las diferentes pistas que contienen. Aprenderemos a crearlos a partir de dichas pistas y por último
+                    las usaremos en dos escenarios donde se ajustará la calidad de reproducción de acuerdo al bitrate actual del usuario.
                 </p>
             <h2>Manifiesto 1:</h2>
                 <p>Hay 4 codificaciones de vídeo, una de audio y la única resolución es 854x480.</p>
@@ -30,11 +31,15 @@
                 <p>Hay 3 codificaciones de vídeo, una de audio y las resoluciones son 512x288, 768x432 y 1280x720</p>
             
             <h2>Ejercicio 1</h2>
-                <p>Creamos una escena con un elemento de vídeo que simplemente reproduzca un manifiesto, en este caso se ha indicado que utilice el último, que tiene 3 pistas de vídeo en 3 resoluciones y una única pista de audio.</p>
+                <p>Creamos una escena con un elemento de vídeo que simplemente reproduzca un manifiesto, en este caso se ha indicado que utilice el último, que tiene 3 pistas de vídeo en 3 resoluciones y una única pista de audio.
+                    Se ha ajustado el tamaño del elemento para que se visualice el total del contenido cuando la resolución es 1080p.
+                </p>
                 <iframe class="container big" src="prac5-1.html">                    
                 </iframe>
             <h2>Ejercicio 2</h2>
-                <p>De manera similar al anterior, reproducimos el manifiesto pero en este caso lo hacemos sobre el objeto creado en la práctica 3-2. Podemos ver que el tamaño del objeto que se usa varía en función de la resolución que se aplique.</p>
+                <p>De manera similar al anterior, reproducimos el manifiesto pero en este caso lo hacemos sobre el objeto creado en la práctica 3-2. Podemos ver que el tamaño del objeto que se usa varía en función de la resolución que se aplique.
+                    Se ha añadido un overlay para la reproducción del vídeo, y por tanto, es posible que el objeto esté dado la vuelta cuando se empieza a reproducir, pero eventualmente se da la vuelta.
+                </p>
                 <iframe class="container" src="prac5-2.html">
                     Escena 2
                 </iframe>
