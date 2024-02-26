@@ -40,7 +40,7 @@ if ( !WEBGL.isWebGLAvailable() ) {
 
     /*****************************************CÓDIGO**************************************** */
 
-    const url = "./manifests/sintelFinal.mpd";
+    const url = "http://localhost:8080/manifests/sintelFinal.mpd";
     const player = dashjs.MediaPlayer().create();
     player.initialize(document.querySelector("#video"), url, false);
 
